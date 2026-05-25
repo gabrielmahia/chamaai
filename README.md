@@ -1,28 +1,44 @@
-# SaccoAI — Kenya Rotating Credit Group Manager
+# SaccoAI — Kenya Chama & SACCO Management
 
-AI-powered chama, merry-go-round, and table banking management for Kenya.
+> **Manage** your chama — merry-go-round schedules, table banking, M-Pesa payments, AI advisor.
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://saccoai.streamlit.app)
+[![Part of East African Decision Infrastructure](https://img.shields.io/badge/Portfolio-East%20African%20Decision%20Infrastructure-orange)](https://gabrielmahia.github.io)
 
-## Features
+> **Looking to find and compare SACCOs?** Use [SACCO Scout →](https://chaguasacco.streamlit.app) (github.com/gabrielmahia/sacco-scout)
 
-- 🏠 **Chama Setup** — configure type, contributions, registration status
-- 👥 **Member Management** — add/track members, roles, contribution history
-- 📅 **Merry-Go-Round Schedule** — auto-generate rotation with payouts
-- 🏦 **Table Banking Calculator** — loan eligibility, repayment, dividends
-- 📊 **Contribution Tracker** — monthly status board
-- 📱 **M-Pesa Integration** — STK push + B2C commands via [mpesa-mcp](https://github.com/gabrielmahia/mpesa-mcp)
-- 🤖 **AI Advisor** — Gemini-powered chama financial guidance
+## What it does
 
-## The gap this fills
+SaccoAI is a **management** tool for Kenya's 300,000+ chamas and SACCOs — rotating credit groups, investment clubs, and table banking groups.
 
-Kenya has 300,000+ registered chamas managing an estimated $5B+ in rotating credit.
-Zero of them have an AI-first digital tool. This is that tool.
+| Feature | What it does |
+|---------|-------------|
+| 🏠 Chama Setup | Configure type, contributions, meeting schedule, registration path |
+| 👥 Member Manager | Track members, roles, M-Pesa phones, contribution history |
+| 📅 Merry-Go-Round | Auto-generate rotation schedule with monthly payouts |
+| 🏦 Table Banking | Loan eligibility (1x–3x savings), repayment, interest, dividends |
+| 📊 Contribution Tracker | Monthly board — who's paid, who's pending, collection rate |
+| 📱 M-Pesa Integration | STK push commands for contributions, B2C for payouts |
+| 🤖 AI Advisor | Gemini-powered guidance: constitution, UWEZO Fund, dispute resolution |
 
-## Part of
+## The gap it fills
 
-[East African Decision Infrastructure](https://gabrielmahia.github.io) by Gabriel Mahia.
+Kenya has 300,000+ registered chamas managing an estimated KES 500B+ in rotating credit.
+Zero of them have an AI-first management tool. This is that tool.
+
+## Deploy
+
+```
+share.streamlit.io → New app → gabrielmahia/saccoai → app.py
+Add secret: GOOGLE_API_KEY
+```
+
+## Related
+
+- [SACCO Scout](https://github.com/gabrielmahia/sacco-scout) — Find and compare Kenya's licensed SACCOs (chaguasacco.streamlit.app)
+- [mpesa-mcp](https://github.com/gabrielmahia/mpesa-mcp) — M-Pesa API for payment automation
+- [East African Decision Infrastructure](https://gabrielmahia.github.io)
 
 ## License
 
-MIT | contact@aikungfu.dev
+MIT © Gabriel Mahia | contact@aikungfu.dev
