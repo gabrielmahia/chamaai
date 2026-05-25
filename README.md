@@ -1,8 +1,8 @@
-# ChamaAI — Kenya Rotating Credit Group Manager
+# SaccoAI — Kenya Rotating Credit Group Manager
 
 AI-powered chama, merry-go-round, and table banking management for Kenya.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://chamaai.streamlit.app)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://saccoai.streamlit.app)
 
 ## Features
 
