@@ -1,12 +1,12 @@
 """
-ChamaAI — Kenya Rotating Credit Group Manager
+SaccoAI — Kenya SACCO & Chama Manager
 AI-powered chama, merry-go-round, and table banking management.
 """
 import sys, json, math, urllib.request, ssl, datetime
 import streamlit as st
 
 st.set_page_config(
-    page_title="ChamaAI — Kenya Chama Manager",
+    page_title="SaccoAI — Kenya Chama Manager",
     page_icon="💰",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -41,7 +41,7 @@ if "chama_name" not in st.session_state:
 # ── Sidebar ───────────────────────────────────────────────────
 with st.sidebar:
     st.image("https://flagcdn.com/w40/ke.png", width=40)
-    st.title("ChamaAI 💰")
+    st.title("SaccoAI 💰")
     st.caption("Kenya Chama Manager")
     st.divider()
     mode = st.radio("Select module", [
@@ -485,7 +485,7 @@ For live M-Pesa payments, connect [mpesa-mcp](https://github.com/gabrielmahia/mp
 # MODULE 7: AI ADVISOR
 # ─────────────────────────────────────────────────────────────
 else:
-    st.title("🤖 ChamaAI Advisor")
+    st.title("🤖 SaccoAI Advisor")
     st.markdown("*AI-powered guidance for your chama's financial health*")
 
     if "chama_chat" not in st.session_state:
@@ -509,7 +509,7 @@ else:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
 
-    user_q = st.chat_input("Ask ChamaAI...")
+    user_q = st.chat_input("Ask SaccoAI...")
     if quick != "—":
         user_q = quick
         st.session_state.chama_chat = []
@@ -526,7 +526,7 @@ else:
 
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
-                prompt = f"""You are ChamaAI, an expert in Kenya chama management, rotating credit groups, table banking, and informal financial systems.
+                prompt = f"""You are SaccoAI, an expert in Kenya chama management, rotating credit groups, table banking, and informal financial systems.
 
 Context: {context}
 
@@ -550,4 +550,4 @@ Format with clear headings and bullet points."""
                     st.error(f"AI error: {e}")
 
 st.divider()
-st.caption("ChamaAI © 2026 | [mpesa-mcp](https://github.com/gabrielmahia/mpesa-mcp) | [East African Decision Infrastructure](https://gabrielmahia.github.io) | contact@aikungfu.dev")
+st.caption("SaccoAI © 2026 | [mpesa-mcp](https://github.com/gabrielmahia/mpesa-mcp) | [East African Decision Infrastructure](https://gabrielmahia.github.io) | contact@aikungfu.dev")
