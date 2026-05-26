@@ -18,19 +18,28 @@ def get_key():
     except Exception:
         return None
 
-def gemini(prompt: str, key: str) -> str:
+def gemini(prompt: str, key: str, max_tokens: int = 1200) -> str:
+    """Call Gemini — returns graceful fallback on any error, never raises."""
     url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
+    prompt = prompt[:5000]
     body = {"contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"temperature": 0.2, "maxOutputTokens": 1500}}
-    req = urllib.request.Request(
-        f"{url}?key={key}", data=json.dumps(body).encode(),
+            "generationConfig": {"temperature": 0.3, "maxOutputTokens": max_tokens}}
+    req_obj = urllib.request.Request(f"{url}?key={key}",
+        data=json.dumps(body).encode(),
         headers={"Content-Type": "application/json"})
-    ctx = ssl.create_default_context()
-    with urllib.request.urlopen(req, timeout=20, context=ctx) as r:
-        d = json.loads(r.read())
-    return d["candidates"][0]["content"]["parts"][0]["text"]
+    try:
+        import ssl, urllib.error
+        with urllib.request.urlopen(req_obj, timeout=25,
+                                     context=ssl.create_default_context()) as r:
+            d = json.loads(r.read())
+        candidates = d.get("candidates", [])
+        if not candidates:
+            return "_No response. Try again._"
+        return candidates[0]["content"]["parts"][0]["text"]
+    except Exception as e:
+        code_val = getattr(e, 'code', '')
+        return f"_AI unavailable{f' (HTTP {code_val})' if code_val else ''}: {type(e).__name__}_"
 
-# ── Session State ─────────────────────────────────────────────
 if "members" not in st.session_state:
     st.session_state.members = []
 if "contributions" not in st.session_state:
